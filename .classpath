@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="snakeyaml"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/java-sf-pipe-common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/java-sf-ssp"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/java-sf-wrapped-exception"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/java-sf-common-closeable"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/java-sf-common-function-lt18"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/java-sf-common-iterator"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/java-sf-common"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/java-sf-common-type"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
