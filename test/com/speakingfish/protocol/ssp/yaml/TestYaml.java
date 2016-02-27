@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.junit.Test;
 import org.yaml.snakeyaml.DumperOptions;
+import org.yaml.snakeyaml.DumperOptions.FlowStyle;
+import org.yaml.snakeyaml.DumperOptions.LineBreak;
 import org.yaml.snakeyaml.DumperOptions.ScalarStyle;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.emitter.Emitter;
@@ -26,15 +28,20 @@ public class TestYaml {
     @Test public void test() {
         //fail("Not yet implemented");
         final Any<?> srcAny = anyObject(
-            named("str", "string value"),
-            named("str1", "long\nstring\nvalue\n"),
-            named("int1", 1)
+            named("one", "string value"),
+            named("many of", "long\nstring\nvalue\n"),
+            named("sometimes", 1)
             );
         final Node srcAnyToNode = newNode(srcAny);
         //Representer ee = new Representer();
         //ee.getPropertyUtils().
         DumperOptions dumperOptions = new DumperOptions();
-        dumperOptions.setDefaultScalarStyle(ScalarStyle.LITERAL); 
+        dumperOptions.setDefaultScalarStyle(ScalarStyle.LITERAL);
+        dumperOptions.setDefaultFlowStyle(FlowStyle.FLOW);
+        dumperOptions.setLineBreak(LineBreak.UNIX);
+        dumperOptions.setSplitLines(true);
+        dumperOptions.setPrettyFlow(true);
+        
         
         //System.out.println(new Yaml(dumperOptions).dump(srcAnyToNode));
         
