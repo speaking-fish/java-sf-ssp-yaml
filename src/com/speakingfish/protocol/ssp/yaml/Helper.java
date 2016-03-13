@@ -1,5 +1,8 @@
 package com.speakingfish.protocol.ssp.yaml;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -8,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Map.Entry;
 
 import com.speakingfish.common.Maps;
+import com.speakingfish.common.exception.wrapped.java.io.WrappedIOException;
 import com.speakingfish.common.function.Mapper;
 import com.speakingfish.common.mapper.Mappers;
 import com.speakingfish.protocol.ssp.Any;
@@ -65,6 +69,20 @@ public class Helper {
             return readYaml(reader);
         } finally {
             catchClose(reader);
+        }
+    }
+
+    public static Any<?> readYaml(File in) {
+        FileInputStream inputStream;
+        try {
+            inputStream = new FileInputStream(in);
+        } catch(FileNotFoundException e) {
+            throw new WrappedIOException(e);
+        }
+        try {
+            return readYaml(inputStream);
+        } finally {
+            catchClose(inputStream);
         }
     }
     
