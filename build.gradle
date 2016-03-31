@@ -1,0 +1,48 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.5
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes(
+            'Implementation-Title': 'Speakingfish simple serialization protocol - YAML module',
+            'Implementation-Version': version
+        )
+    }
+}
+    
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+    test {
+        java {
+            srcDir 'test'
+        }
+    }
+}
+
+dependencies {
+    compile group: 'org.yaml', name: 'snakeyaml', version: '1.16+'
+    compile project(':java-sf-common-compatibility')
+    compile project(':java-sf-common-function')
+    compile project(':java-sf-common')
+    compile project(':java-sf-common-closeable')
+    compile project(':java-sf-common-value')
+    compile project(':java-sf-common-value-util')
+    compile project(':java-sf-common-type')
+    compile project(':java-sf-common-iterator')
+    compile project(':java-sf-wrapped-exception')
+    compile project(':java-sf-pipe-common')
+    compile project(':java-sf-ssp')
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
